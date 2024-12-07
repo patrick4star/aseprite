@@ -9,7 +9,7 @@ jobs:
         os: [windows-latest]
         build_type: [Release]
         ui: [gui]
-        
+            
     steps:
     - uses: actions/checkout@v4
       with:
@@ -54,6 +54,7 @@ jobs:
           export enable_ccache=on
         fi
 
+    
         if [[ "${{ matrix.ui }}" == "gui" ]] ; then
           export laf_backend=skia
         else
@@ -86,10 +87,10 @@ jobs:
       run: |
         cd build && ninja
     - uses: actions/upload-artifact@v3
-      with:
+      with: 
         name: aseprite
-        path: | 
+        path: |
           libcrypto-1_1-x64.dll
           D:/a/aseprite/aseprite/build/bin/data
-          D:/a/aseprite/aseprite/build/bind/aseprite.exe
-   
+          D:/a/aseprite/aseprite/build/bin/aseprite.exe
+          
